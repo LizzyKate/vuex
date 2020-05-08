@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <listOne :producing="products"></listOne>
-    <listTwo :producing="products"></listTwo>
+    <listOne ></listOne>
+    <listTwo ></listTwo>
   </div>
 </template>
 
