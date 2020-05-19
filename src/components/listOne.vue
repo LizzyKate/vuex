@@ -2,15 +2,20 @@
   <div id="listOne" >
     <h2>Product List One</h2>
     <ul>
-      <li v-for="(tick, i) in products" :key="i">
+      <li v-for="(tick, i) in saleProducts" :key="i">
         <span class="name">{{tick.name}}</span>
         <span class="price">${{tick.price}}</span>
       </li>
     </ul>
+    <button v-on:click="reduce(4)">Reduce Price</button>
   </div>
 </template>
 
 <script>
+
+import {mapActions} from 'vuex'
+import {mapGetters} from 'vuex'
+
 export default {
 data(){
 return{
@@ -20,7 +25,15 @@ return{
   computed:{
     products(){
       return this.$store.state.products
-    }
+    },
+   ...mapGetters([
+     'saleProducts'
+   ])
+  },
+  methods:{
+    ...mapActions([
+      'reduce'
+    ])
   }
 }
 </script>
